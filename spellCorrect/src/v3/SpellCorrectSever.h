@@ -6,7 +6,6 @@
     fprintf(stdout,__VA_ARGS__)
 namespace  wd{
     using ConnectionPtr=std::shared_ptr<Connection>;
-    
 class SpellCorrectSever
 {
 public:
@@ -14,7 +13,6 @@ public:
     void onConnection(const ConnectionPtr& );
     void onMessage(const ConnectionPtr& );
     void onClose(const ConnectionPtr& );
-    
     
     void start();
     void stop();

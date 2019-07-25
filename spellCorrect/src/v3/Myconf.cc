@@ -42,6 +42,9 @@ string Myconf::getdictpath(){
 string Myconf::getindexpath(){
     return  _configmap[string("myindex")];
 }
+string Myconf::getcachepath(){
+    return  _configmap[string("mycache")];
+}
 
 
 void show_conf();

@@ -8,6 +8,10 @@
 
 
 namespace wd{
+struct train{
+    int datalen;
+    char data[4096];
+};
 class Eventloop;
 class Connection
 :public std::enable_shared_from_this<Connection>
@@ -52,5 +56,6 @@ private:
     ConnectionCallback _onmessage;
     ConnectionCallback _onclose;
 
+    train _train;
 };
 }

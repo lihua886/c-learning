@@ -4,3 +4,5 @@ mythreadnum 5
 myqsize     10
 mydict     /home/fsq/study/c++/c-learning/spellCorrect/data/en/mydict.dat    
 myindex    /home/fsq/study/c++/c-learning/spellCorrect/data/en/index.dat 
+mycache    /home/fsq/study/c++/c-learning/spellCorrect/data/en/mycache.dat 
+

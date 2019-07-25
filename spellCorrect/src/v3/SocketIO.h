@@ -12,7 +12,7 @@ public:
 
 
    int readn(char * buff,int len);
-   int writen(const char * buff,int len);
+   int writen(const void* buff,int len);
    int readline(char * buff,int maxlen);
 private:
    int recvPeek(char *buff,int len);

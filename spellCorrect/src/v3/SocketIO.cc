@@ -31,9 +31,9 @@ int SocketIO::readn(char * buff,int len){
     }
     return len-left;
 }
-int SocketIO::writen(const char * buff,int len){
+int SocketIO::writen(const void* buff,int len){
     int left=len;
-    const char *p=buff;
+    const char *p=(const char *)buff;
     while(left>0){
         int ret=::write(_fd,p,left);
         if(ret==-1&&errno==EINTR){

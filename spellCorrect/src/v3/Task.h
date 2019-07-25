@@ -1,4 +1,5 @@
 #pragma once
+#include <json/json.h>
 #include <string>
 #include <memory>
 #include <queue>
@@ -12,7 +13,6 @@ struct MyResult
     int distance;
     std::string  candidate_word;
     int frequency;
-
 };
 struct compareResult{
     bool operator()(const MyResult& lhs,const MyResult& rhs) const{
@@ -27,6 +27,7 @@ struct compareResult{
 };
 
 class Connection;
+class Cache;
 using ConnectionPtr=std::shared_ptr<Connection>;
 class Mytask
 {
@@ -39,6 +40,8 @@ public:
 private:
     int calcDistance(std::string & rhs);
     void taskCore();
+    void changeJson(Json::Value &);
+    bool searchCache(Cache &);
 private:
     std::string _query;
     ConnectionPtr _conn;

@@ -1,5 +1,7 @@
 #include "Connection.h"
 #include "Eventloop.h"
+#include <stdlib.h>
+#include <string.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <sstream>
@@ -8,6 +10,9 @@
 
 
 namespace wd{
+
+
+
 Connection::Connection(int fd,Eventloop * loop)
 :_sock(fd)
 ,_socketio(fd)
@@ -15,6 +20,7 @@ Connection::Connection(int fd,Eventloop * loop)
 ,_peeraddr(getpeeraddr())
 ,_isShutDownWrite(false)
 ,_loop(loop){
+    memset(&_train,0,sizeof(_train));
 }
 
 
@@ -30,7 +36,9 @@ std::string Connection::receive(){
     return std::string(buf);
 }
 void Connection::send(const std::string & msg){
-     _socketio.writen(msg.c_str(),msg.size());
+     _train.datalen=msg.size();
+     strcpy(_train.data,msg.c_str());
+     _socketio.writen(&_train,msg.size()+4);
 }
 std::string Connection::toString(){
     std::ostringstream oss;

@@ -33,6 +33,7 @@ public:
     size_t getqsize();
     string getdictpath();
     string getindexpath();
+    string getcachepath();
     void show_conf();
 private:
     Myconf(){

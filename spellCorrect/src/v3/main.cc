@@ -1,5 +1,5 @@
 #include "SpellCorrectSever.h"
-#include "CacheManger.h"
+//#include "CacheManger.h"
 //#include "TimerThread.h"
 
 int main(){

@@ -36,7 +36,7 @@ void Timerfd::start()
 	setTimerfd(_initialTime, _intervalTime);
 
 	while(_isStarted) {
-		int nready = ::poll(&pfd, 1, -1);	
+		int nready = ::poll(&pfd, 1, 5000);	
 		if(nready == -1 && errno == EINTR)
 			continue;
 		else if(nready == -1)

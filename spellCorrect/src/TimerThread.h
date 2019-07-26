@@ -13,7 +13,6 @@ using std::endl;
  
 namespace wd
 {
-
 class TimerThread
 {
 	using TimerCallback = function<void()>;
@@ -33,7 +32,6 @@ public:
 		_timer.stop();
 		_thread.join();
 	}
-
 private:
 	Timerfd _timer;
 	Thread _thread;

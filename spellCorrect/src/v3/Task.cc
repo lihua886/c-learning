@@ -1,10 +1,10 @@
 #include "Task.h"
 #include "Thread.h"
-#include "Cache.h"
+//#include "Cache.h"
 #include "Dictionary.h"
 #include "EditDistance.h"
 #include "Connection.h"
-#include "CacheManger.h"
+//#include "CacheManger.h"
 #include <sstream>
 #include <string.h>
 
@@ -22,17 +22,17 @@ Mytask::Mytask(const std::string & msg,
               _query.erase(_query.end()-1);
           }
 void Mytask::process(){
-    Cache mycache=CacheManger::getInstance()->getCache(wd::current_thread::threadnum);
+ //   Cache mycache=CacheManger::getInstance()->getCache(wd::current_thread::threadnum);
     __TRACE("%ld\n",wd::current_thread::threadnum);
-    if(!searchCache(mycache)){
+  //  if(!searchCache(mycache)){
        taskCore();
        __TRACE("calulate distance\n");
        Json::Value root;
        changeJson(root);
-       mycache.addElement(_query,root.toStyledString());
+  //     mycache.addElement(_query,root.toStyledString());
        _conn->sendInLoop(root.toStyledString());
        __TRACE("send message finish\n");
-    }
+  //  }
     __TRACE("finish task\n");
 }
 void Mytask::changeJson(Json::Value &root){
@@ -48,6 +48,7 @@ void Mytask::changeJson(Json::Value &root){
 int Mytask::calcDistance(std::string & rhs){
     return editDistance(_query,rhs);
 }
+#if 0
 bool Mytask::searchCache(Cache & mycache){
     string res=mycache.getElement(_query);
     if(res.size()!=0){
@@ -57,6 +58,7 @@ bool Mytask::searchCache(Cache & mycache){
         return false;
     }
 }
+#endif
 void Mytask::taskCore(){
     for(auto & it:_query){
         std::ostringstream oss;

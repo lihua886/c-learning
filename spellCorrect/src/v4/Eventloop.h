@@ -37,13 +37,14 @@ private:
     
     int createEpollFd(); // 创建efd
     int createEventFd();// 创建eventfd 
-    int createTimerfd();
     //eventfd处理
     void eventhandleRead();
     void wakeup();
     void doPendingFunctors();
    
-    
+    //timer
+    int createTimerfd();
+    void setTimerfd(int initialTime=0, int intervalTime=6);
     void timehandleRead();
     void updateCache();
 
@@ -53,7 +54,6 @@ private:
     void addEpollFdRead(int fd); 
     void delEpollFdRead(int fd);
     bool isConnectionClosed(int fd);
-    void setTimerfd(int initialTime=0, int intervalTime=6);
 private:
     int _efd;
     int _eventFd;

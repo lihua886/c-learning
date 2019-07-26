@@ -1,38 +1,26 @@
 {
 {
-   "hello" : [ "hello", "hullo", "hell" ]
+   "刘" : [ "刘", "刘备", "刘勰" ]
 }
 ,
 {
-   "luke" : [ "luke", "like", "duke" ]
+   "赵" : [ "赵令", "赵云", "赵冰" ]
 }
 ,
 {
-   "rise" : [ "rise", "rose", "risk" ]
+   "王道abc" : [ "abc", "sac", "baby" ]
 }
 ,
 {
-   "nice" : [ "nice", "nine", "vice" ]
+   "童话" : [ "神话", "话", "对话" ]
 }
 ,
 {
-   "ride" : [ "ride", "side", "rise" ]
+   "学校" : [ "学者", "学科", "学派" ]
 }
 ,
 {
-   "like" : [ "like", "life", "line" ]
-}
-,
-{
-   "love" : [ "love", "live", "loved" ]
-}
-,
-{
-   "school" : [ "school", "schools", "shook" ]
-}
-,
-{
-   "qwer" : [ "her", "were", "we" ]
+   "教师" : [ "教师", "大师", "教育" ]
 }
 ,
 }

@@ -5,14 +5,27 @@
 #include "EditDistance.h"
 #include "Connection.h"
 #include "CacheManger.h"
+#include "str-ws.h"
 #include <sstream>
 #include <string.h>
 #include <cctype>
+#include <cwctype>
 
 using std::ostringstream;
 #define __TRACE(...) fprintf(stdout, "file[%s]line[%u]func[%s]::",__FILE__,__LINE__,__func__);\
     fprintf(stdout,__VA_ARGS__)
 namespace wd{
+
+void queryfunc(string & _query){
+    _query.erase(_query.end()-1);
+    std::wstring ws=s2Ws(_query);
+    for(auto &it:ws){
+        if(iswalpha(it)){
+            it=towlower(it);
+        }
+    }
+    _query=ws2S(ws);
+}
 Mytask::Mytask(const std::string & msg,
            const ConnectionPtr & conn)
         : _query(msg)
@@ -20,10 +33,7 @@ Mytask::Mytask(const std::string & msg,
         ,_dict(Dictionary::getInstance()->getDict())
         ,_indexTable(Dictionary::getInstance()->getIndex()){
               memset(array,0,50000);
-              _query.erase(_query.end()-1);
-              for(auto &it:_query){
-                  it=tolower(it);
-              }
+              queryfunc(_query);
           }
 void Mytask::process(){
     if(_query.size()==0){
@@ -73,10 +83,11 @@ bool Mytask::searchCache(Cache & mycache){
 }
 #endif
 void Mytask::taskCore(){
-    for(auto & it:_query){
-        std::ostringstream oss;
-        oss<<it;
-        auto iter=_indexTable.find(oss.str());
+    std::wstring ws=s2Ws(_query);
+    for(auto &it:ws){
+        wstring tempws(1,it);
+        string str=ws2S(tempws);
+        auto iter=_indexTable.find(str);
         if(iter!=_indexTable.end()){
             for(auto &num:iter->second){
                if(array[num]){

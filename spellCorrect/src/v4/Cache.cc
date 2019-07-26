@@ -54,10 +54,8 @@ string  Cache::getElement(const string & key){
    __TRACE("%s\n",key.c_str());
    auto it=_hashMap.find(key);
    if(it==_hashMap.end()){
-        __TRACE("not find word in cache\n") ;       
         return string();
    }else{
-        __TRACE("find word in cache\n") ;       
        string result=it->second->_value;
        _list.splice(_list.begin(),_list,it->second);
        _hashMap[key]=_list.begin();
@@ -73,7 +71,7 @@ void Cache::readFromFile(const std::string & filename){
         if(value.length()==1){
             continue;
         }
-        __TRACE("%s\n",value.c_str());
+       // __TRACE("%s\n",value.c_str());
         std::istringstream iss(value);
         string key;
         iss>>key;

@@ -16,15 +16,15 @@ vector<Cache> CacheManger::_cachelist(Myconf::getInstance()->getthreadnum());
 #if 1
 void CacheManger::init(){
     for(size_t i=0;i<Myconf::getInstance()->getthreadnum();++i){
-         Cache* cache(new Cache);
-         cache->readFromFile(Myconf::getInstance()->getcachepath());
-         _cachelist.push_back(std::move(*cache));
+         _cachelist[i].readFromFile(Myconf::getInstance()->getcachepath());
+        // __TRACE("cache.size=%ld,_cachelist.size()=%ld\n",_cachelist[i].getSize(),_cachelist.size());
     }
 }
 void CacheManger::periodUpdate(){
-//    std::cout<<"cache task begin"<<std::endl;
     for(size_t i=1;i<Myconf::getInstance()->getthreadnum();++i){
         _cachelist[0].cacheInsert(_cachelist[i]);
+    //    __TRACE("_cache[0].size=%ld\n",_cachelist[0].getSize());
+    //    __TRACE("_cache[0].size=%ld\n",_cachelist[i].getSize());
     }
     for(size_t i=1;i<Myconf::getInstance()->getthreadnum();++i){
         _cachelist[i].update(_cachelist[0]);

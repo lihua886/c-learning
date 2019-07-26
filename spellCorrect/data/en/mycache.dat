@@ -1,6 +1,38 @@
 {
 {
-   "ncie" : [ "once", "name", "uncle" ]
+   "hello" : [ "hello", "hullo", "hell" ]
+}
+,
+{
+   "luke" : [ "luke", "like", "duke" ]
+}
+,
+{
+   "rise" : [ "rise", "rose", "risk" ]
+}
+,
+{
+   "nice" : [ "nice", "nine", "vice" ]
+}
+,
+{
+   "ride" : [ "ride", "side", "rise" ]
+}
+,
+{
+   "like" : [ "like", "life", "line" ]
+}
+,
+{
+   "love" : [ "love", "live", "loved" ]
+}
+,
+{
+   "school" : [ "school", "schools", "shook" ]
+}
+,
+{
+   "qwer" : [ "her", "were", "we" ]
 }
 ,
 }

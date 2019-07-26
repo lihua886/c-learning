@@ -31,9 +31,9 @@ void Mytask::process(){
        return;
     }
     Cache &mycache=CacheManger::getCache(wd::current_thread::threadnum);
-    __TRACE("%ld,myche.size()=%ld\n",wd::current_thread::threadnum,mycache.getSize());
+ //   size_t size=CacheManger::getCache(wd::current_thread::threadnum).getSize();
+  //  __TRACE("%ld,myche.size()=%ld,size=%ld\n",wd::current_thread::threadnum,mycache.getSize(),size);
     if(!searchCache(mycache)){
-    __TRACE("find in dict\n ");
        taskCore();
        if(_que.empty()){
           _conn->sendInLoop("no answer");
@@ -41,7 +41,7 @@ void Mytask::process(){
        }
        Json::Value root;
        changeJson(root);
-    __TRACE("_query=%s,res=%s\n",_query.c_str(),root.toStyledString().c_str());
+  //  __TRACE("_query=%s,res=%s\n",_query.c_str(),root.toStyledString().c_str());
       mycache.addElement(_query,root.toStyledString());
       _conn->sendInLoop(root.toStyledString());
     }
@@ -63,10 +63,11 @@ int Mytask::calcDistance(std::string & rhs){
 bool Mytask::searchCache(Cache & mycache){
     string res=mycache.getElement(_query);
     if(res.size()!=0){
-       __TRACE("find in cache\n ");
+       __TRACE("word %s in cache\n ",_query.c_str());
         _conn->sendInLoop(res);
         return true;
     }else{
+       __TRACE("word %s not in cache\n ",_query.c_str());
         return false;
     }
 }

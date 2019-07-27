@@ -22,7 +22,7 @@ Eventloop::Eventloop(Acceptor & accept)
     }
 void Eventloop::loop(){
     _islooping=true;
-    setTimerfd(1,6);
+    setTimerfd(0,6);
     while(_islooping){
         waitEpollFd();
     }
@@ -153,7 +153,7 @@ void Eventloop::setTimerfd(int initialTime, int intervalTime)
 {
 	struct itimerspec value;
 	value.it_value.tv_sec = initialTime;
-	value.it_value.tv_nsec = 0;
+	value.it_value.tv_nsec = 5000;
 	value.it_interval.tv_sec = intervalTime;
 	value.it_interval.tv_nsec = 0;
 
@@ -162,9 +162,12 @@ void Eventloop::setTimerfd(int initialTime, int intervalTime)
 		perror(">> timerfd_settime");
 	}
 }
+
 void Eventloop::updateCache(){
     CacheManger::periodUpdate();
 }
+
+
 void Eventloop::doPendingFunctors(){
     std::vector<Functor> tmp;
     {

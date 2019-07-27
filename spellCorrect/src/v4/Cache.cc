@@ -17,14 +17,12 @@ namespace  wd{
 
 
 // 构造函数 
-#if 1
 Cache::Cache(const Cache & cache){
     for(auto &it:cache._list){
         this->addElement(it._key,it._value);
     }
 } 
-#endif
-    //往缓存中添加数据
+//往缓存中添加数据
 void Cache::addElement(const std::string &key, const std::string & value){
    auto it=_hashMap.find(key);
    if(it==_hashMap.end()){
@@ -62,7 +60,7 @@ string  Cache::getElement(const string & key){
        return result;
    }
 }
-    // 从文件中读取缓存信息 
+// 从文件中读取缓存信息 
 void Cache::readFromFile(const std::string & filename){
     ifstream ifs(filename);
     string value;
@@ -93,7 +91,7 @@ void Cache::readFromFile(const std::string & filename){
    }
 #endif
 }
-    // 将缓存信息写入到文件中  
+// 将缓存信息写入到文件中  
 void Cache::writeToFile(const std::string & filename){
     ofstream ofs(filename);
     ofs<<"{"<<std::endl;
@@ -103,7 +101,6 @@ void Cache::writeToFile(const std::string & filename){
     ofs<<"}";
 }
 
-#if 1
 //更新缓存信息 
 void Cache::update(const Cache & rhs){
     _list.clear();
@@ -116,7 +113,6 @@ void Cache::cacheInsert(const Cache & rhs){
     }
 }
 
-#endif
 
 
 

@@ -22,6 +22,8 @@ public:
     Connection(int fd,Eventloop *);
     ~Connection();
     
+
+    int getclientfd(){return _sock.fd();}
     
     std::string receive();
     void send(const std::string & msg);

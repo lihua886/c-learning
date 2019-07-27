@@ -54,16 +54,16 @@ namespace wd{
          log4cpp::FileAppender *fileAppender = new log4cpp::FileAppender("fileAppender","/home/fsq/study/c++/c-learning/spellCorrect/log/my.log");
          fileAppender->setLayout(ptn2);
 
-         m_root.addAppender(OstreamAppender);
+         //m_root.addAppender(OstreamAppender);
          m_root.addAppender(fileAppender);
          m_root.setPriority(log4cpp::Priority::DEBUG);
          
-         cout<<"Mylogger()"<<endl;
+         //cout<<"Mylogger()"<<endl;
      }
      Mylogger::~Mylogger(){
          
          log4cpp::Category::shutdown();
-         cout<<"~Mylogger()"<<endl;
+         //cout<<"~Mylogger()"<<endl;
      }
 
 

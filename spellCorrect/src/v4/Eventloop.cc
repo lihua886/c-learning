@@ -9,6 +9,8 @@
 #include <unistd.h>
 #include <sys/timerfd.h>
 namespace wd{
+
+//构造函数
 Eventloop::Eventloop(Acceptor & accept)
     :_efd(createEpollFd())
     ,_eventFd(createEventFd())
@@ -20,6 +22,7 @@ Eventloop::Eventloop(Acceptor & accept)
         addEpollFdRead(_eventFd);
         addEpollFdRead(_timerFd);
     }
+
 void Eventloop::loop(){
     _islooping=true;
     setTimerfd(0,6);
@@ -33,13 +36,6 @@ void Eventloop::unloop(){
     }
 }
     
-void Eventloop::runInLoop(Functor && cb){
-    {
-        MutexGuard autoMutex(_mutex);
-        _pendingFunctors.push_back(std::move(cb));
-    }
-    wakeup();
-}
 void Eventloop::waitEpollFd(){
     int nReady;
     do{
@@ -83,6 +79,7 @@ void Eventloop::handleNewConnection(){// 处理新连接
     int peerfd=_accept.accept();
     addEpollFdRead(peerfd);
     ConnectionPtr conn(new Connection(peerfd,this));
+    LogInfo("%d client connected\n",peerfd);
     //注册连接，传递信息，关闭连接的回调函数
     conn->setConnectionCallback(_onconnection);
     conn->setMassageCallback(_onmessage);
@@ -95,13 +92,26 @@ void Eventloop::handleMessage(int fd){// 处理消息
    auto iter=_conns.find(fd);
    assert(iter!=_conns.end());
    if(ret){
+       LogInfo("%d client disconnected\n",fd);
        delEpollFdRead(fd);
        iter->second->handleCloseCallback();
        _conns.erase(fd);
    }else{
        iter->second->handleMassageCallback();
    }
-} 
+}
+//判断是否断开连接
+bool Eventloop::isConnectionClosed(int fd){  // recv返回0表示连接断开
+    int ret;
+    do{
+        char buf[1000]={0};
+        ret=recv(fd,buf,sizeof(buf),MSG_PEEK);
+    }while(ret==-1&&errno==EINTR);
+    
+    
+    return (ret==0);
+}
+//epoll 监控
 int Eventloop::createEpollFd(){// 创建efd 
     int ret=epoll_create(1);
     if(ret==-1){
@@ -109,75 +119,6 @@ int Eventloop::createEpollFd(){// 创建efd
     }
     return ret;
 } 
-int Eventloop::createEventFd(){
-    int ret=eventfd(10,0);
-    if(ret==-1){
-        perror("eventfd");
-    }
-    return ret;
-}
-void Eventloop::wakeup(){
-    uint64_t one=1;
-    int ret=write(_eventFd,&one,sizeof(one));
-    if(ret != sizeof(one)){
-        perror("read");
-    }
-
-}
-
-
-void Eventloop::eventhandleRead(){
-    uint64_t one;
-    int ret=read(_eventFd,&one,sizeof(one));
-    if(ret != sizeof(one)){
-        perror("read");
-    }
-}
-void Eventloop::timehandleRead(){
-    uint64_t one;
-    int ret=read(_timerFd,&one,sizeof(one));
-    if(ret != sizeof(one)){
-        perror("read");
-    }
-}
-
-int Eventloop::createTimerfd()
-{
-	int fd = ::timerfd_create(CLOCK_REALTIME, 0);
-	if(fd == -1) {
-		perror(">> timerfd_create");
-	}
-	return fd;
-}
-void Eventloop::setTimerfd(int initialTime, int intervalTime)
-{
-	struct itimerspec value;
-	value.it_value.tv_sec = initialTime;
-	value.it_value.tv_nsec = 5000;
-	value.it_interval.tv_sec = intervalTime;
-	value.it_interval.tv_nsec = 0;
-
-	int ret = ::timerfd_settime(_timerFd, 0, &value, nullptr);
-	if(ret == -1) {
-		perror(">> timerfd_settime");
-	}
-}
-
-void Eventloop::updateCache(){
-    CacheManger::periodUpdate();
-}
-
-
-void Eventloop::doPendingFunctors(){
-    std::vector<Functor> tmp;
-    {
-        MutexGuard autoLock(_mutex);
-        tmp.swap(_pendingFunctors);
-    }
-    for(auto & functor:tmp){
-        functor();
-    }
-}
 void Eventloop::addEpollFdRead(int fd){
     struct epoll_event evs;
     evs.events=EPOLLIN;
@@ -195,17 +136,82 @@ void Eventloop::delEpollFdRead(int fd){
         perror("epoll_ctl");
     }
 }
-bool Eventloop::isConnectionClosed(int fd){  // recv返回0表示连接断开
-    int ret;
-    do{
-        char buf[1000]={0};
-        ret=recv(fd,buf,sizeof(buf),MSG_PEEK);
-    }while(ret==-1&&errno==EINTR);
-    
-    
-    return (ret==0);
+//eventfd
+int Eventloop::createEventFd(){
+    int ret=eventfd(10,0);
+    if(ret==-1){
+        perror("eventfd");
+    }
+    return ret;
+}
+void Eventloop::wakeup(){
+    uint64_t one=1;
+    int ret=write(_eventFd,&one,sizeof(one));
+    if(ret != sizeof(one)){
+        perror("read");
+    }
+
+}
+void Eventloop::eventhandleRead(){
+    uint64_t one;
+    int ret=read(_eventFd,&one,sizeof(one));
+    if(ret != sizeof(one)){
+        perror("read");
+    }
+}
+//发送给客户端消息
+void Eventloop::runInLoop(Functor && cb){
+    {
+        MutexGuard autoMutex(_mutex);
+        _pendingFunctors.push_back(std::move(cb));
+    }
+    wakeup();
+}
+void Eventloop::doPendingFunctors(){
+    std::vector<Functor> tmp;
+    {
+        MutexGuard autoLock(_mutex);
+        tmp.swap(_pendingFunctors);
+    }
+    for(auto & functor:tmp){
+        functor();
+    }
+}
+//timer
+int Eventloop::createTimerfd()
+{
+	int fd = ::timerfd_create(CLOCK_REALTIME, 0);
+	if(fd == -1) {
+		perror(">> timerfd_create");
+	}
+	return fd;
+}
+void Eventloop::timehandleRead(){
+    uint64_t one;
+    int ret=read(_timerFd,&one,sizeof(one));
+    if(ret != sizeof(one)){
+        perror("read");
+    }
+}
+void Eventloop::setTimerfd(int initialTime, int intervalTime)
+{
+	struct itimerspec value;
+	value.it_value.tv_sec = initialTime;
+	value.it_value.tv_nsec = 5000;
+	value.it_interval.tv_sec = intervalTime;
+	value.it_interval.tv_nsec = 0;
+	int ret = ::timerfd_settime(_timerFd, 0, &value, nullptr);
+	if(ret == -1) {
+		perror(">> timerfd_settime");
+	}
+}
+//缓存更新
+void Eventloop::updateCache(){
+    CacheManger::periodUpdate();
 }
 
 
 
-}
+
+
+}// end of wd

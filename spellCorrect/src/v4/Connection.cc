@@ -1,10 +1,13 @@
 #include "Connection.h"
 #include "Eventloop.h"
+#include "Mylogger.h"
 #include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <sstream>
+#include <string>
+using std::string;
 
 
 
@@ -55,6 +58,7 @@ void Connection::shutdown(){
 
 
 void Connection::sendInLoop(const std::string &msg){
+   LogInfo("return %d client %s\n",_sock.fd(),msg.c_str());
    _loop->runInLoop(std::bind(&Connection::send,this,msg)); 
 }
 InetAddress Connection::getlocaladdr(){

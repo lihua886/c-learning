@@ -22,10 +22,12 @@ void Threadpool::start(){
 void Threadpool::stop(){
     if(!_isExit){
         //执行完任务
-        
+        //以防任务没有执行完毕
         while(!_taskqueue.empty()){::sleep(1);}
+       
         _isExit=true;
-        _taskqueue.wakeup();
+        _taskqueue.wakeup();//以防在_isExit修改之前，线程走到了wait
+        
         for(auto & thread:_threads){
             thread->join();
         }
@@ -38,6 +40,7 @@ void Threadpool::addTask(Task&& task){
 Task Threadpool::getTask(){
     return _taskqueue.pop();
 }
+//线程执行的任务
 void Threadpool::threadfunc(){
     while(!_isExit){
         Task task=getTask();

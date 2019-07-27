@@ -37,7 +37,8 @@ private:
     
     int createEpollFd(); // 创建efd
     int createEventFd();// 创建eventfd 
-    //eventfd处理
+    
+    //eventfd
     void eventhandleRead();
     void wakeup();
     void doPendingFunctors();
@@ -48,24 +49,25 @@ private:
     void timehandleRead();
     void updateCache();
 
-
-
-
+    //epoll注册与删除
     void addEpollFdRead(int fd); 
     void delEpollFdRead(int fd);
+
+    //判断连接状态
     bool isConnectionClosed(int fd);
 private:
     int _efd;
     int _eventFd;
     int _timerFd;
     Acceptor & _accept;
-    std::vector<struct epoll_event> _eventlist;
+    std::vector<struct epoll_event> _eventlist;//epoll注册事件
     std::map<int ,ConnectionPtr> _conns;// 建立的所有连接
     bool _islooping;
 
     MutexLock _mutex;
-    std::vector<Functor> _pendingFunctors;
+    std::vector<Functor> _pendingFunctors;//返回客户端消息的任务
 
+    //connection 回调函数
     ConnectionCallback _onconnection;
     ConnectionCallback _onmessage;
     ConnectionCallback _onclose;

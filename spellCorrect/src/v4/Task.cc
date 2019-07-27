@@ -5,6 +5,7 @@
 #include "EditDistance.h"
 #include "Connection.h"
 #include "CacheManger.h"
+#include "Mylogger.h"
 #include "str-ws.h"
 #include <sstream>
 #include <string.h>
@@ -12,10 +13,8 @@
 #include <cwctype>
 
 using std::ostringstream;
-#define __TRACE(...) fprintf(stdout, "file[%s]line[%u]func[%s]::",__FILE__,__LINE__,__func__);\
-    fprintf(stdout,__VA_ARGS__)
 namespace wd{
-
+//对查询词的简单处理
 void queryfunc(string & _query){
     _query.erase(_query.end()-1);
     std::wstring ws=s2Ws(_query);
@@ -26,6 +25,7 @@ void queryfunc(string & _query){
     }
     _query=ws2S(ws);
 }
+//构造函数
 Mytask::Mytask(const std::string & msg,
            const ConnectionPtr & conn)
         : _query(msg)
@@ -35,15 +35,14 @@ Mytask::Mytask(const std::string & msg,
               memset(array,0,50000);
               queryfunc(_query);
           }
+//线程执行的任务
 void Mytask::process(){
     if(_query.size()==0){
        _conn->sendInLoop("no answer");
        return;
     }
     Cache &mycache=CacheManger::getCache(wd::current_thread::threadnum);
- //   size_t size=CacheManger::getCache(wd::current_thread::threadnum).getSize();
- //  __TRACE("%ld,myche.size()=%ld,size=%ld\n",wd::current_thread::threadnum,mycache.getSize(),size);
-   __TRACE("%ld thread search %s\n",wd::current_thread::threadnum,_query.c_str());
+    LogInfo("%ld thread search %d client's word: %s\n",wd::current_thread::threadnum,_conn->getclientfd(),_query.c_str());
     if(!searchCache(mycache)){
        taskCore();
        if(_que.empty()){
@@ -52,11 +51,11 @@ void Mytask::process(){
        }
        Json::Value root;
        changeJson(root);
-  //  __TRACE("_query=%s,res=%s\n",_query.c_str(),root.toStyledString().c_str());
-      mycache.addElement(_query,root.toStyledString());
-      _conn->sendInLoop(root.toStyledString());
+       mycache.addElement(_query,root.toStyledString());//添加到缓存
+       _conn->sendInLoop(root.toStyledString());
     }
 }
+//转换为json格式
 void Mytask::changeJson(Json::Value &root){
     Json::FastWriter fast;
     int cnt=3;
@@ -70,19 +69,19 @@ void Mytask::changeJson(Json::Value &root){
 int Mytask::calcDistance(std::string & rhs){
     return editDistance(_query,rhs);
 }
-#if 1
+//在缓存中查找
 bool Mytask::searchCache(Cache & mycache){
     string res=mycache.getElement(_query);
     if(res.size()!=0){
-       __TRACE("word %s in cache\n ",_query.c_str());
+       LogInfo("%ld thread search %d client's word %s in cache\n",wd::current_thread::threadnum,_conn->getclientfd(),_query.c_str());
         _conn->sendInLoop(res);
         return true;
     }else{
-       __TRACE("word %s not in cache\n ",_query.c_str());
+       LogInfo("%ld thread search %d client's word %s not in cache\n",wd::current_thread::threadnum,_conn->getclientfd(),_query.c_str());
         return false;
     }
 }
-#endif
+//在词典中查找
 void Mytask::taskCore(){
     std::wstring ws=s2Ws(_query);
     for(auto &it:ws){

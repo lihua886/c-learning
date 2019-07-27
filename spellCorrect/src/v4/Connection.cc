@@ -73,13 +73,16 @@ InetAddress Connection::getpeeraddr(){
 }
 
 void Connection::handleConnectionCallback(){
-     _onconnection(shared_from_this());
+     if(_onconnection)
+        _onconnection(shared_from_this());
 }
 void Connection::handleMassageCallback(){
-    _onmessage(shared_from_this());
+    if(_onmessage)
+        _onmessage(shared_from_this());
 }
 void Connection::handleCloseCallback(){
-    _onclose(shared_from_this());
+    if(_onclose)
+        _onclose(shared_from_this());
 }
     
     

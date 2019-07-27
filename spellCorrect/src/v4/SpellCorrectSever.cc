@@ -1,7 +1,9 @@
 #include "SpellCorrectSever.h"
 #include "Connection.h"
+#include "CacheManger.h"
 #include "Myconf.h"
 #include "Task.h"
+#include "Mylogger.h"
 #include <cstdlib>
 #include <iostream>
 using std::cout;
@@ -39,6 +41,8 @@ void SpellCorrectSever::onClose(const ConnectionPtr& conn){
     std::cout << ">> " << conn->toString() << " has closed!" << std::endl;
 }
 void SpellCorrectSever::start(){
+     LogInfo("process begin running\n");
+     CacheManger::init();
      _threadpool.start();
      _tcpserver.setConnectionCallback(std::bind(&SpellCorrectSever::onConnection,this,std::placeholders::_1));
      _tcpserver.setMassageCallback(std::bind(&SpellCorrectSever::onMessage,this,std::placeholders::_1));

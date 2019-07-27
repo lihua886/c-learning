@@ -2,6 +2,7 @@
 #include "Acceptor.h"
 #include "Connection.h"
 #include "CacheManger.h"
+#include "Mylogger.h"
 #include <iostream>
 #include <assert.h>
 #include <sys/eventfd.h>
@@ -83,9 +84,9 @@ void Eventloop::handleNewConnection(){// 处理新连接
     addEpollFdRead(peerfd);
     ConnectionPtr conn(new Connection(peerfd,this));
     //注册连接，传递信息，关闭连接的回调函数
-    conn->setConnectionCallback(std::move(_onconnection));
-    conn->setMassageCallback(std::move(_onmessage));
-    conn->setCloseCallback(std::move(_onclose));
+    conn->setConnectionCallback(_onconnection);
+    conn->setMassageCallback(_onmessage);
+    conn->setCloseCallback(_onclose);
     _conns.insert(std::make_pair(peerfd,conn));
     conn->handleConnectionCallback();// 执行新连接的回调函数
 }

@@ -29,13 +29,13 @@ public:
 
     std::string toString();  //打印连接
     void shutdown();  // 
-    void setConnectionCallback(ConnectionCallback && cb){
+    void setConnectionCallback(const ConnectionCallback & cb){
         _onconnection=std::move(cb);
     }
-    void setMassageCallback(ConnectionCallback && cb){
+    void setMassageCallback(const ConnectionCallback & cb){
         _onmessage=std::move(cb);
     }
-    void setCloseCallback(ConnectionCallback && cb){
+    void setCloseCallback(const ConnectionCallback & cb){
         _onclose=std::move(cb);
     }
     void handleConnectionCallback();

@@ -51,7 +51,7 @@ void Cache::addElement(const std::string &key, const std::string & value){
 #endif
 }
 string  Cache::getElement(const string & key){
-   __TRACE("%s\n",key.c_str());
+//   __TRACE("%s\n",key.c_str());
    auto it=_hashMap.find(key);
    if(it==_hashMap.end()){
         return string();

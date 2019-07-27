@@ -42,7 +42,8 @@ void Mytask::process(){
     }
     Cache &mycache=CacheManger::getCache(wd::current_thread::threadnum);
  //   size_t size=CacheManger::getCache(wd::current_thread::threadnum).getSize();
-  //  __TRACE("%ld,myche.size()=%ld,size=%ld\n",wd::current_thread::threadnum,mycache.getSize(),size);
+ //  __TRACE("%ld,myche.size()=%ld,size=%ld\n",wd::current_thread::threadnum,mycache.getSize(),size);
+   __TRACE("%ld thread search %s\n",wd::current_thread::threadnum,_query.c_str());
     if(!searchCache(mycache)){
        taskCore();
        if(_que.empty()){

@@ -60,7 +60,7 @@ private:
     int _timerFd;
     Acceptor & _accept;
     std::vector<struct epoll_event> _eventlist;
-    std::map<int ,ConnectionPtr> _conns;
+    std::map<int ,ConnectionPtr> _conns;// 建立的所有连接
     bool _islooping;
 
     MutexLock _mutex;

@@ -2,7 +2,7 @@ INC_DIR:= ./
 SRC_DIR:= ./
 SRCS:=$(wildcard *.cc)
 OBJS:= $(patsubst %.cc, %.o, $(SRCS))
-LIBS:= -lpthread -ljson
+LIBS:= -lpthread -ljson -llog4cpp
 
 CXX:=g++
 

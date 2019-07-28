@@ -52,6 +52,7 @@ void Mytask::process(){
        Json::Value root;
        changeJson(root);
        mycache.addElement(_query,root.toStyledString());//添加到缓存
+       CacheManger::periodUpdate2(wd::current_thread::threadnum);
        _conn->sendInLoop(root.toStyledString());
     }
 }
@@ -59,7 +60,10 @@ void Mytask::process(){
 void Mytask::changeJson(Json::Value &root){
     //Json::FastWriter fast;
     int cnt=5;
-    while(cnt--){  
+    while(cnt--){
+        if(_que.empty()){
+            break;
+        }
         string str=_que.top().candidate_word;
         _que.pop();
         root[_query.c_str()].append(str.c_str());

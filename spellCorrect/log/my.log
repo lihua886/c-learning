@@ -975,3 +975,959 @@
 }
 
 
+2019-07-28 13:56:31,115 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 13:57:16,972 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 13:59:21,825 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 13:59:23,660 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 13:59:28,503 [INFO] [Task.cc:process:45]4 thread search 8 client's word: hello
+
+2019-07-28 13:59:28,503 [INFO] [Task.cc:searchCache:76]4 thread search 8 client's word hello in cache
+
+2019-07-28 13:59:28,503 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "hello" : [ "hello", "hullo", "hell", "hallo", "tell" ]
+}
+
+
+2019-07-28 13:59:36,224 [INFO] [Eventloop.cc:handleMessage:95]8 client disconnected
+
+2019-07-28 14:10:18,171 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:10:30,568 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 14:10:36,987 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 臭瓜
+
+2019-07-28 14:10:36,987 [INFO] [Task.cc:searchCache:80]4 thread search 8 client's word 臭瓜 not in cache
+
+2019-07-28 14:10:36,987 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "臭瓜" : [ "臭", "苦瓜", "苦瓜", "苦瓜", "苦瓜" ]
+}
+
+
+2019-07-28 14:12:01,776 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:12:05,375 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 14:12:09,265 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 臭瓜
+
+2019-07-28 14:12:09,265 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word 臭瓜 not in cache
+
+2019-07-28 14:12:09,265 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "臭瓜" : [ "臭", "苦瓜" ]
+}
+
+
+2019-07-28 14:12:54,591 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 明
+
+2019-07-28 14:12:54,591 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word 明 not in cache
+
+2019-07-28 14:12:54,591 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "明" : [ "明", "说明", "明显", "鲜明", "明确" ]
+}
+
+
+2019-07-28 14:12:57,063 [INFO] [Task.cc:process:45]2 thread search 8 client's word: 白
+
+2019-07-28 14:12:57,063 [INFO] [Task.cc:searchCache:79]2 thread search 8 client's word 白 in cache
+
+2019-07-28 14:12:57,063 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "白" : [ "白", "李白", "黑白", "明白", "白云" ]
+}
+
+
+2019-07-28 14:13:01,000 [INFO] [Task.cc:process:45]1 thread search 8 client's word: gekk
+
+2019-07-28 14:13:01,000 [INFO] [Task.cc:searchCache:83]1 thread search 8 client's word gekk not in cache
+
+2019-07-28 14:13:01,073 [INFO] [Connection.cc:sendInLoop:61]return 8 client no answer
+
+2019-07-28 14:13:01,112 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "gekk" : [ "neck", "week", "weak", "seek", "gets" ]
+}
+
+
+2019-07-28 14:13:03,213 [INFO] [Task.cc:process:45]4 thread search 8 client's word: ekafka
+
+2019-07-28 14:13:03,213 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word ekafka not in cache
+
+2019-07-28 14:13:03,351 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "ekafka" : [ "kaska", "vaska", "alaska", "uvarka", "makarka" ]
+}
+
+
+2019-07-28 14:13:05,992 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 王道
+
+2019-07-28 14:13:05,992 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word 王道 not in cache
+
+2019-07-28 14:13:05,992 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "王道" : [ "道", "王", "写道", "儒道", "天道" ]
+}
+
+
+2019-07-28 14:13:19,100 [INFO] [Task.cc:process:45]2 thread search 8 client's word: ������喌������������������������������������������������������������
+
+2019-07-28 14:13:19,100 [INFO] [Task.cc:searchCache:83]2 thread search 8 client's word ������喌������������������������������������������������������������ not in cache
+
+2019-07-28 14:13:19,100 [INFO] [Connection.cc:sendInLoop:61]return 8 client no answer
+
+2019-07-28 14:13:26,717 [INFO] [Task.cc:process:45]0 thread search 8 client's word: 清华大学
+
+2019-07-28 14:13:26,717 [INFO] [Task.cc:searchCache:83]0 thread search 8 client's word 清华大学 not in cache
+
+2019-07-28 14:13:26,720 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "清华大学" : [
+      "大学",
+      "云南大学",
+      "北京大学",
+      "安徽大学",
+      "师范大学"
+   ]
+}
+
+
+2019-07-28 14:13:43,069 [INFO] [Task.cc:process:45]1 thread search 8 client's word: 学校
+
+2019-07-28 14:13:43,069 [INFO] [Task.cc:searchCache:83]1 thread search 8 client's word 学校 not in cache
+
+2019-07-28 14:13:43,070 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "学校" : [ "学者", "学科", "学派", "学", "学术" ]
+}
+
+
+2019-07-28 14:13:58,737 [INFO] [Eventloop.cc:handleMessage:95]8 client disconnected
+
+2019-07-28 14:14:32,908 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:14:43,889 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:15:24,919 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:15:48,815 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:16:26,163 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:16:34,227 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 14:16:36,468 [INFO] [Task.cc:process:45]4 thread search 8 client's word: hello
+
+2019-07-28 14:16:36,468 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word hello not in cache
+
+2019-07-28 14:16:36,577 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "hello" : [ "hello", "hullo", "hell", "hallo", "tell" ]
+}
+
+
+2019-07-28 14:16:40,029 [INFO] [Task.cc:process:45]3 thread search 8 client's word: xiaomi
+
+2019-07-28 14:16:40,029 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word xiaomi not in cache
+
+2019-07-28 14:16:40,160 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "xiaomi" : [ "lipoma", "xii", "xiii", "diam", "ami" ]
+}
+
+
+2019-07-28 14:16:46,048 [INFO] [Task.cc:process:45]2 thread search 8 client's word: 深圳
+
+2019-07-28 14:16:46,048 [INFO] [Task.cc:searchCache:83]2 thread search 8 client's word 深圳 not in cache
+
+2019-07-28 14:16:46,048 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "深圳" : [ "深刻", "深度", "深入", "深化", "深层" ]
+}
+
+
+2019-07-28 14:16:50,944 [INFO] [Task.cc:process:45]1 thread search 8 client's word: 北京
+
+2019-07-28 14:16:50,944 [INFO] [Task.cc:searchCache:83]1 thread search 8 client's word 北京 not in cache
+
+2019-07-28 14:16:50,944 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "北京" : [ "北京", "京", "北宋", "北方", "北禅" ]
+}
+
+
+2019-07-28 14:16:56,698 [INFO] [Task.cc:process:45]0 thread search 8 client's word: 天津
+
+2019-07-28 14:16:56,698 [INFO] [Task.cc:searchCache:83]0 thread search 8 client's word 天津 not in cache
+
+2019-07-28 14:16:56,698 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "天津" : [ "天津", "天下", "天地", "天", "天才" ]
+}
+
+
+2019-07-28 14:16:58,944 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 伤害
+
+2019-07-28 14:16:58,944 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word 伤害 not in cache
+
+2019-07-28 14:16:58,944 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "伤害" : [ "有害", "迫害", "利害", "损害", "伤感" ]
+}
+
+
+2019-07-28 14:17:02,624 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 刘
+
+2019-07-28 14:17:02,624 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word 刘 not in cache
+
+2019-07-28 14:17:02,625 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "刘" : [ "刘", "刘备", "刘勰", "刘璋", "刘安" ]
+}
+
+
+2019-07-28 14:17:05,794 [INFO] [Task.cc:process:45]2 thread search 8 client's word: hello
+
+2019-07-28 14:17:05,794 [INFO] [Task.cc:searchCache:79]2 thread search 8 client's word hello in cache
+
+2019-07-28 14:17:05,794 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "hello" : [ "hello", "hullo", "hell", "hallo", "tell" ]
+}
+
+
+2019-07-28 14:17:09,158 [INFO] [Task.cc:process:45]1 thread search 8 client's word: task
+
+2019-07-28 14:17:09,158 [INFO] [Task.cc:searchCache:83]1 thread search 8 client's word task not in cache
+
+2019-07-28 14:17:09,253 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "task" : [ "task", "talk", "ask", "mask", "tack" ]
+}
+
+
+2019-07-28 14:17:17,091 [INFO] [Task.cc:process:45]0 thread search 8 client's word: 天空
+
+2019-07-28 14:17:17,091 [INFO] [Task.cc:searchCache:83]0 thread search 8 client's word 天空 not in cache
+
+2019-07-28 14:17:17,092 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "天空" : [ "天空", "天下", "天地", "天", "天才" ]
+}
+
+
+2019-07-28 14:17:19,215 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 教师
+
+2019-07-28 14:17:19,215 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word 教师 not in cache
+
+2019-07-28 14:17:19,215 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "教师" : [ "教师", "大师", "教育", "教授", "教化" ]
+}
+
+
+2019-07-28 14:17:32,235 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 笑
+
+2019-07-28 14:17:32,235 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word 笑 not in cache
+
+2019-07-28 14:17:32,235 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "笑" : [ "笑", "笑剧", "可笑", "一笑", "其笑" ]
+}
+
+
+2019-07-28 14:17:40,705 [INFO] [Task.cc:process:45]2 thread search 8 client's word: 哭
+
+2019-07-28 14:17:40,705 [INFO] [Task.cc:searchCache:83]2 thread search 8 client's word 哭 not in cache
+
+2019-07-28 14:17:40,705 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "哭" : [ "哭" ]
+}
+
+
+2019-07-28 14:17:48,015 [INFO] [Eventloop.cc:handleMessage:95]8 client disconnected
+
+2019-07-28 14:30:42,244 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:31:02,316 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 14:31:05,149 [INFO] [Task.cc:process:45]4 thread search 8 client's word: hello
+
+2019-07-28 14:31:05,149 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word hello not in cache
+
+2019-07-28 14:31:05,740 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "hello" : [ "hello", "hullo", "hell", "hallo", "tell" ]
+}
+
+
+2019-07-28 14:31:08,127 [INFO] [Task.cc:process:45]3 thread search 8 client's word: ming
+
+2019-07-28 14:31:08,127 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word ming not in cache
+
+2019-07-28 14:31:08,552 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "ming" : [ "mind", "king", "ring", "sing", "wing" ]
+}
+
+
+2019-07-28 14:31:12,297 [INFO] [Task.cc:process:45]2 thread search 8 client's word: 李
+
+2019-07-28 14:31:12,297 [INFO] [Task.cc:searchCache:83]2 thread search 8 client's word 李 not in cache
+
+2019-07-28 14:31:12,297 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "李" : [ "李", "李白", "李娃", "学李", "引李" ]
+}
+
+
+2019-07-28 14:31:14,507 [INFO] [Task.cc:process:45]1 thread search 8 client's word: bai
+
+2019-07-28 14:31:14,507 [INFO] [Task.cc:searchCache:83]1 thread search 8 client's word bai not in cache
+
+2019-07-28 14:31:14,823 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "bai" : [ "bad", "bay", "bag", "ban", "ai" ]
+}
+
+
+2019-07-28 14:31:17,946 [INFO] [Task.cc:process:45]0 thread search 8 client's word: 学校
+
+2019-07-28 14:31:17,946 [INFO] [Task.cc:searchCache:83]0 thread search 8 client's word 学校 not in cache
+
+2019-07-28 14:31:17,948 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "学校" : [ "学者", "学科", "学派", "学", "学术" ]
+}
+
+
+2019-07-28 14:31:20,567 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 再见
+
+2019-07-28 14:31:20,567 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word 再见 not in cache
+
+2019-07-28 14:31:20,568 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "再见" : [ "见", "再现", "参见", "再生", "偏见" ]
+}
+
+
+2019-07-28 14:31:23,495 [INFO] [Task.cc:process:45]3 thread search 8 client's word: liubei
+
+2019-07-28 14:31:23,496 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word liubei not in cache
+
+2019-07-28 14:31:24,113 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "liubei" : [ "limbed", "life", "line", "limb", "liable" ]
+}
+
+
+2019-07-28 14:31:27,988 [INFO] [Task.cc:process:45]2 thread search 8 client's word: 笑
+
+2019-07-28 14:31:27,988 [INFO] [Task.cc:searchCache:83]2 thread search 8 client's word 笑 not in cache
+
+2019-07-28 14:31:27,988 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "笑" : [ "笑", "笑剧", "可笑", "一笑", "其笑" ]
+}
+
+
+2019-07-28 14:31:29,840 [INFO] [Task.cc:process:45]1 thread search 8 client's word: 哭
+
+2019-07-28 14:31:29,841 [INFO] [Task.cc:searchCache:83]1 thread search 8 client's word 哭 not in cache
+
+2019-07-28 14:31:29,841 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "哭" : [ "哭" ]
+}
+
+
+2019-07-28 14:31:31,883 [INFO] [Task.cc:process:45]0 thread search 8 client's word: shuohua
+
+2019-07-28 14:31:31,883 [INFO] [Task.cc:searchCache:83]0 thread search 8 client's word shuohua not in cache
+
+2019-07-28 14:31:32,627 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "shuohua" : [ "shout", "shuya", "sonya", "south", "short" ]
+}
+
+
+2019-07-28 14:31:36,361 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 说话
+
+2019-07-28 14:31:36,361 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word 说话 not in cache
+
+2019-07-28 14:31:36,362 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "说话" : [ "说话", "说", "神话", "说明", "话" ]
+}
+
+
+2019-07-28 14:31:40,562 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 门
+
+2019-07-28 14:31:40,562 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word 门 not in cache
+
+2019-07-28 14:31:40,563 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "门" : [ "门", "门类", "部门", "专门", "一门" ]
+}
+
+
+2019-07-28 14:31:58,704 [INFO] [Eventloop.cc:handleMessage:95]8 client disconnected
+
+2019-07-28 14:34:16,601 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:34:29,297 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 14:34:33,196 [INFO] [Task.cc:process:45]4 thread search 8 client's word: hello
+
+2019-07-28 14:34:33,196 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word hello not in cache
+
+2019-07-28 14:34:33,695 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "hello" : [ "hello", "hullo", "hell", "hallo", "tell" ]
+}
+
+
+2019-07-28 14:34:37,184 [INFO] [Task.cc:process:45]3 thread search 8 client's word: kk
+
+2019-07-28 14:34:37,184 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word kk not in cache
+
+2019-07-28 14:34:37,195 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "kk" : [ "k", "ku", "ak", "ke", "ka" ]
+}
+
+
+2019-07-28 14:34:39,434 [INFO] [Task.cc:process:45]2 thread search 8 client's word: uu
+
+2019-07-28 14:34:39,434 [INFO] [Task.cc:searchCache:83]2 thread search 8 client's word uu not in cache
+
+2019-07-28 14:34:39,504 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "uu" : [ "u", "au", "du", "qu", "ku" ]
+}
+
+
+2019-07-28 14:34:44,034 [INFO] [Task.cc:process:45]1 thread search 8 client's word: 刘备
+
+2019-07-28 14:34:44,034 [INFO] [Task.cc:searchCache:83]1 thread search 8 client's word 刘备 not in cache
+
+2019-07-28 14:34:44,034 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "刘备" : [ "刘备", "具备", "刘勰", "准备", "刘" ]
+}
+
+
+2019-07-28 14:34:48,967 [INFO] [Task.cc:process:45]0 thread search 8 client's word: 小胡
+
+2019-07-28 14:34:48,967 [INFO] [Task.cc:searchCache:83]0 thread search 8 client's word 小胡 not in cache
+
+2019-07-28 14:34:48,967 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "小胡" : [ "小说", "小节", "小调", "小人", "小品" ]
+}
+
+
+2019-07-28 14:34:54,944 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 无敌
+
+2019-07-28 14:34:54,944 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word 无敌 not in cache
+
+2019-07-28 14:34:54,944 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "无敌" : [ "无疑", "无法", "无以", "无不", "无限" ]
+}
+
+
+2019-07-28 14:37:51,046 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:37:55,739 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 14:38:00,853 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 小明
+
+2019-07-28 14:38:00,853 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word 小明 not in cache
+
+2019-07-28 14:38:00,853 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "小明" : [ "小说", "说明", "鲜明", "小节", "文明" ]
+}
+
+
+2019-07-28 14:38:21,896 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 再见
+
+2019-07-28 14:38:21,896 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word 再见 not in cache
+
+2019-07-28 14:38:21,896 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "再见" : [ "见", "再现", "参见", "再生", "偏见" ]
+}
+
+
+2019-07-28 14:38:26,127 [INFO] [Task.cc:process:45]2 thread search 8 client's word: hello
+
+2019-07-28 14:38:26,127 [INFO] [Task.cc:searchCache:83]2 thread search 8 client's word hello not in cache
+
+2019-07-28 14:38:26,241 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "hello" : [ "hello", "hullo", "hell", "hallo", "tell" ]
+}
+
+
+2019-07-28 14:38:40,711 [INFO] [Task.cc:process:45]1 thread search 8 client's word: 说话
+
+2019-07-28 14:38:40,711 [INFO] [Task.cc:searchCache:83]1 thread search 8 client's word 说话 not in cache
+
+2019-07-28 14:38:40,711 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "说话" : [ "说话", "说", "神话", "说明", "话" ]
+}
+
+
+2019-07-28 14:38:48,136 [INFO] [Task.cc:process:45]0 thread search 8 client's word: faja
+
+2019-07-28 14:38:48,136 [INFO] [Task.cc:searchCache:83]0 thread search 8 client's word faja not in cache
+
+2019-07-28 14:38:48,198 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "faja" : [ "face", "far", "fact", "fall", "fate" ]
+}
+
+
+2019-07-28 14:39:02,663 [INFO] [Task.cc:process:45]4 thread search 8 client's word: afjajf
+
+2019-07-28 14:39:02,663 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word afjajf not in cache
+
+2019-07-28 14:39:02,759 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "afjajf" : [ "afraid", "affair", "afar", "aflame", "afwaid" ]
+}
+
+
+2019-07-28 14:39:25,908 [INFO] [Task.cc:process:45]3 thread search 8 client's word: fafjafj
+
+2019-07-28 14:39:25,908 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word fafjafj not in cache
+
+2019-07-28 14:39:26,020 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "fafjafj" : [ "afraid", "affair", "fatal", "facial", "afar" ]
+}
+
+
+2019-07-28 14:39:36,850 [INFO] [Task.cc:process:45]2 thread search 8 client's word: fajfja
+
+2019-07-28 14:39:36,850 [INFO] [Task.cc:searchCache:83]2 thread search 8 client's word fajfja not in cache
+
+2019-07-28 14:39:36,953 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "fajfja" : [ "fascia", "tafa", "falaba", "jaffa", "lafa" ]
+}
+
+
+2019-07-28 14:39:46,764 [INFO] [Eventloop.cc:handleMessage:95]8 client disconnected
+
+2019-07-28 14:42:48,356 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:43:04,692 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 14:43:11,590 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 门笑
+
+2019-07-28 14:43:11,590 [INFO] [Task.cc:searchCache:83]4 thread search 8 client's word 门笑 not in cache
+
+2019-07-28 14:43:11,590 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "门笑" : [ "门类", "门", "笑", "可笑", "门户" ]
+}
+
+
+2019-07-28 14:43:14,637 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 哭
+
+2019-07-28 14:43:14,637 [INFO] [Task.cc:searchCache:83]3 thread search 8 client's word 哭 not in cache
+
+2019-07-28 14:43:14,637 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "哭" : [ "哭" ]
+}
+
+
+2019-07-28 14:43:20,496 [INFO] [Task.cc:process:45]2 thread search 8 client's word: afjajf
+
+2019-07-28 14:43:20,496 [INFO] [Task.cc:searchCache:79]2 thread search 8 client's word afjajf in cache
+
+2019-07-28 14:43:20,496 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "afjajf" : [ "afraid", "affair", "afar", "aflame", "afwaid" ]
+}
+
+
+2019-07-28 14:43:22,587 [INFO] [Task.cc:process:45]1 thread search 8 client's word: 器
+
+2019-07-28 14:43:22,587 [INFO] [Task.cc:searchCache:83]1 thread search 8 client's word 器 not in cache
+
+2019-07-28 14:43:22,587 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "器" : [ "器", "武器", "陶器", "乐器", "石器" ]
+}
+
+
+2019-07-28 14:43:27,616 [INFO] [Eventloop.cc:handleMessage:95]8 client disconnected
+
+2019-07-28 14:54:11,884 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:54:42,364 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:54:47,219 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 14:54:50,008 [INFO] [Task.cc:process:45]4 thread search 8 client's word: hello
+
+2019-07-28 14:54:50,008 [INFO] [Task.cc:searchCache:84]4 thread search 8 client's word hello not in cache
+
+2019-07-28 14:54:50,113 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "hello" : [ "hello", "hullo", "hell", "hallo", "tell" ]
+}
+
+
+2019-07-28 14:54:56,909 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 我
+
+2019-07-28 14:54:56,910 [INFO] [Task.cc:searchCache:84]3 thread search 8 client's word 我 not in cache
+
+2019-07-28 14:54:56,910 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "我" : [ "我国", "自我", "我家", "我见", "我复" ]
+}
+
+
+2019-07-28 14:54:58,841 [INFO] [Task.cc:process:45]2 thread search 8 client's word: 明天
+
+2019-07-28 14:54:58,842 [INFO] [Task.cc:searchCache:84]2 thread search 8 client's word 明天 not in cache
+
+2019-07-28 14:54:58,842 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "明天" : [ "明天", "明显", "明确", "今天", "天" ]
+}
+
+
+2019-07-28 14:55:01,133 [INFO] [Task.cc:process:45]1 thread search 8 client's word: 不
+
+2019-07-28 14:55:01,133 [INFO] [Task.cc:searchCache:84]1 thread search 8 client's word 不 not in cache
+
+2019-07-28 14:55:01,134 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "不" : [ "不同", "不能", "不可", "不断", "不少" ]
+}
+
+
+2019-07-28 14:55:03,093 [INFO] [Task.cc:process:45]0 thread search 8 client's word: 上课
+
+2019-07-28 14:55:03,093 [INFO] [Task.cc:searchCache:84]0 thread search 8 client's word 上课 not in cache
+
+2019-07-28 14:55:03,093 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "上课" : [ "上述", "上升", "上来", "上面", "上卷" ]
+}
+
+
+2019-07-28 14:55:05,794 [INFO] [Task.cc:process:45]4 thread search 8 client's word: nice
+
+2019-07-28 14:55:05,795 [INFO] [Task.cc:searchCache:84]4 thread search 8 client's word nice not in cache
+
+2019-07-28 14:55:05,903 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "nice" : [ "nice", "ice", "rice", "niece", "lice" ]
+}
+
+
+2019-07-28 14:55:11,076 [INFO] [Task.cc:process:45]3 thread search 8 client's word: qwer
+
+2019-07-28 14:55:11,076 [INFO] [Task.cc:searchCache:84]3 thread search 8 client's word qwer not in cache
+
+2019-07-28 14:55:11,164 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "qwer" : [ "war", "power", "lower", "wet", "owner" ]
+}
+
+
+2019-07-28 14:55:19,138 [INFO] [Task.cc:process:45]2 thread search 8 client's word: talk
+
+2019-07-28 14:55:19,138 [INFO] [Task.cc:searchCache:84]2 thread search 8 client's word talk not in cache
+
+2019-07-28 14:55:19,228 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "talk" : [ "talk", "walk", "tall", "task", "tale" ]
+}
+
+
+2019-07-28 14:55:22,037 [INFO] [Task.cc:process:45]1 thread search 8 client's word: bye
+
+2019-07-28 14:55:22,037 [INFO] [Task.cc:searchCache:84]1 thread search 8 client's word bye not in cache
+
+2019-07-28 14:55:22,103 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "bye" : [ "bye", "eye", "rye", "bee", "ye" ]
+}
+
+
+2019-07-28 14:55:27,986 [INFO] [Task.cc:process:45]0 thread search 8 client's word: sky
+
+2019-07-28 14:55:27,986 [INFO] [Task.cc:searchCache:84]0 thread search 8 client's word sky not in cache
+
+2019-07-28 14:55:28,042 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "sky" : [ "sky", "say", "shy", "sly", "spy" ]
+}
+
+
+2019-07-28 14:55:31,266 [INFO] [Task.cc:process:45]4 thread search 8 client's word: black
+
+2019-07-28 14:55:31,267 [INFO] [Task.cc:searchCache:84]4 thread search 8 client's word black not in cache
+
+2019-07-28 14:55:31,377 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "black" : [ "black", "lack", "block", "blank", "slack" ]
+}
+
+
+2019-07-28 14:57:58,703 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 14:58:06,266 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 14:58:19,152 [INFO] [Task.cc:process:45]4 thread search 8 client's word: qwer
+
+2019-07-28 14:58:19,152 [INFO] [Task.cc:searchCache:80]4 thread search 8 client's word qwer in cache
+
+2019-07-28 14:58:19,152 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "qwer" : [ "war", "power", "lower", "wet", "owner" ]
+}
+
+
+2019-07-28 14:58:22,503 [INFO] [Task.cc:process:45]3 thread search 8 client's word: asdf
+
+2019-07-28 14:58:22,503 [INFO] [Task.cc:searchCache:84]3 thread search 8 client's word asdf not in cache
+
+2019-07-28 14:58:22,597 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "asdf" : [ "ask", "aid", "aside", "aide", "add" ]
+}
+
+
+2019-07-28 14:58:24,928 [INFO] [Task.cc:process:45]2 thread search 8 client's word: zxcv
+
+2019-07-28 14:58:24,928 [INFO] [Task.cc:searchCache:84]2 thread search 8 client's word zxcv not in cache
+
+2019-07-28 14:58:24,977 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "zxcv" : [ "xiv", "xv", "xxiv", "xxv", "xxxv" ]
+}
+
+
+2019-07-28 14:58:28,183 [INFO] [Task.cc:process:45]1 thread search 8 client's word: iop
+
+2019-07-28 14:58:28,183 [INFO] [Task.cc:searchCache:84]1 thread search 8 client's word iop not in cache
+
+2019-07-28 14:58:28,262 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "iop" : [ "op", "mop", "pop", "cop", "hop" ]
+}
+
+
+2019-07-28 14:58:30,676 [INFO] [Task.cc:process:45]0 thread search 8 client's word: jkl
+
+2019-07-28 14:58:30,676 [INFO] [Task.cc:searchCache:84]0 thread search 8 client's word jkl not in cache
+
+2019-07-28 14:58:30,715 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "jkl" : [ "ll", "ill", "j", "joy", "vol" ]
+}
+
+
+2019-07-28 15:03:15,429 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 15:03:21,360 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 15:03:41,661 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 刘
+
+2019-07-28 15:03:41,661 [INFO] [Task.cc:searchCache:84]4 thread search 8 client's word 刘 not in cache
+
+2019-07-28 15:03:41,665 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "刘" : [ "刘", "刘备", "刘勰", "刘璋", "刘安" ]
+}
+
+
+2019-07-28 15:03:49,355 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 白
+
+2019-07-28 15:03:49,355 [INFO] [Task.cc:searchCache:84]3 thread search 8 client's word 白 not in cache
+
+2019-07-28 15:03:49,355 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "白" : [ "白", "李白", "黑白", "明白", "白云" ]
+}
+
+
+2019-07-28 15:03:56,200 [INFO] [Task.cc:process:45]2 thread search 8 client's word: 张
+
+2019-07-28 15:03:56,200 [INFO] [Task.cc:searchCache:84]2 thread search 8 client's word 张 not in cache
+
+2019-07-28 15:03:56,200 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "张" : [ "张", "主张", "张力", "张飞", "紧张" ]
+}
+
+
+2019-07-28 15:04:02,772 [INFO] [Task.cc:process:45]1 thread search 8 client's word: qwe
+
+2019-07-28 15:04:02,772 [INFO] [Task.cc:searchCache:84]1 thread search 8 client's word qwe not in cache
+
+2019-07-28 15:04:02,837 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "qwe" : [ "owe", "que", "awe", "use", "ve" ]
+}
+
+
+2019-07-28 15:04:07,796 [INFO] [Task.cc:process:45]0 thread search 8 client's word: asd
+
+2019-07-28 15:04:07,796 [INFO] [Task.cc:searchCache:84]0 thread search 8 client's word asd not in cache
+
+2019-07-28 15:04:07,875 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "asd" : [ "ask", "aid", "add", "ash", "ass" ]
+}
+
+
+2019-07-28 15:04:18,081 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 小哥
+
+2019-07-28 15:04:18,081 [INFO] [Task.cc:searchCache:84]4 thread search 8 client's word 小哥 not in cache
+
+2019-07-28 15:04:18,081 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "小哥" : [ "小说", "小节", "小调", "小人", "小品" ]
+}
+
+
+2019-07-28 15:04:24,354 [INFO] [Task.cc:process:45]3 thread search 8 client's word: xiaol
+
+2019-07-28 15:04:24,354 [INFO] [Task.cc:searchCache:84]3 thread search 8 client's word xiaol not in cache
+
+2019-07-28 15:04:24,478 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "xiaol" : [ "gaol", "idol", "dial", "small", "wall" ]
+}
+
+
+2019-07-28 15:04:27,695 [INFO] [Task.cc:process:45]2 thread search 8 client's word: 效率
+
+2019-07-28 15:04:27,695 [INFO] [Task.cc:searchCache:84]2 thread search 8 client's word 效率 not in cache
+
+2019-07-28 15:04:27,695 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "效率" : [ "效果", "效应", "直率", "率", "频率" ]
+}
+
+
+2019-07-28 15:19:59,559 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 15:20:02,054 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 15:20:07,624 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 设
+
+2019-07-28 15:20:07,624 [INFO] [Task.cc:searchCache:84]4 thread search 8 client's word 设 not in cache
+
+2019-07-28 15:20:07,628 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "设" : [ "设", "建设", "设定", "设计", "设置" ]
+}
+
+
+2019-07-28 15:20:11,146 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 计
+
+2019-07-28 15:20:11,146 [INFO] [Task.cc:searchCache:84]3 thread search 8 client's word 计 not in cache
+
+2019-07-28 15:20:11,146 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "计" : [ "设计", "估计", "计划", "计较", "统计" ]
+}
+
+
+2019-07-28 15:20:31,851 [INFO] [Task.cc:process:45]2 thread search 8 client's word: 西
+
+2019-07-28 15:20:31,851 [INFO] [Task.cc:searchCache:84]2 thread search 8 client's word 西 not in cache
+
+2019-07-28 15:20:31,851 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "西" : [ "西", "西方", "东西", "中西", "罗西" ]
+}
+
+
+2019-07-28 15:24:53,817 [INFO] [SpellCorrectSever.cc:start:44]process begin running
+
+2019-07-28 15:24:56,989 [INFO] [Eventloop.cc:handleNewConnection:82]8 client connected
+
+2019-07-28 15:25:06,215 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 白色
+
+2019-07-28 15:25:06,215 [INFO] [Task.cc:searchCache:84]4 thread search 8 client's word 白色 not in cache
+
+2019-07-28 15:25:06,219 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "白色" : [ "特色", "角色", "彩色", "用色", "绿色" ]
+}
+
+
+2019-07-28 15:25:10,215 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 再见
+
+2019-07-28 15:25:10,215 [INFO] [Task.cc:searchCache:84]3 thread search 8 client's word 再见 not in cache
+
+2019-07-28 15:25:10,215 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "再见" : [ "见", "再现", "参见", "再生", "偏见" ]
+}
+
+
+2019-07-28 15:25:15,216 [INFO] [Task.cc:process:45]2 thread search 8 client's word: 为可
+
+2019-07-28 15:25:15,216 [INFO] [Task.cc:searchCache:84]2 thread search 8 client's word 为可 not in cache
+
+2019-07-28 15:25:15,217 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "为可" : [ "不可", "为例", "为主", "为文", "认可" ]
+}
+
+
+2019-07-28 15:25:20,228 [INFO] [Task.cc:process:45]1 thread search 8 client's word: hello
+
+2019-07-28 15:25:20,228 [INFO] [Task.cc:searchCache:84]1 thread search 8 client's word hello not in cache
+
+2019-07-28 15:25:20,362 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "hello" : [ "hello", "hullo", "hell", "hallo", "tell" ]
+}
+
+
+2019-07-28 15:25:26,429 [INFO] [Task.cc:process:45]0 thread search 8 client's word: wule
+
+2019-07-28 15:25:26,429 [INFO] [Task.cc:searchCache:84]0 thread search 8 client's word wule not in cache
+
+2019-07-28 15:25:26,529 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "wule" : [ "rule", "mule", "wife", "use", "able" ]
+}
+
+
+2019-07-28 15:25:31,987 [INFO] [Task.cc:process:45]4 thread search 8 client's word: shuoshenm
+
+2019-07-28 15:25:31,987 [INFO] [Task.cc:searchCache:84]4 thread search 8 client's word shuoshenm not in cache
+
+2019-07-28 15:25:32,199 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "shuoshenm" : [ "chosen", "shinshin", "sunshine", "shamshevo", "hushed" ]
+}
+
+
+2019-07-28 15:25:36,577 [INFO] [Task.cc:process:45]3 thread search 8 client's word: ajfja
+
+2019-07-28 15:25:36,577 [INFO] [Task.cc:searchCache:84]3 thread search 8 client's word ajfja not in cache
+
+2019-07-28 15:25:36,664 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "ajfja" : [ "anna", "area", "sofa", "awful", "aorta" ]
+}
+
+
+2019-07-28 15:25:39,182 [INFO] [Task.cc:process:45]2 thread search 8 client's word: afjaj
+
+2019-07-28 15:25:39,182 [INFO] [Task.cc:searchCache:84]2 thread search 8 client's word afjaj not in cache
+
+2019-07-28 15:25:39,264 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "afjaj" : [ "afar", "ajar", "away", "far", "anna" ]
+}
+
+
+2019-07-28 15:25:41,818 [INFO] [Task.cc:process:45]1 thread search 8 client's word: ajfjajf
+
+2019-07-28 15:25:41,818 [INFO] [Task.cc:searchCache:84]1 thread search 8 client's word ajfjajf not in cache
+
+2019-07-28 15:25:41,921 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "ajfjajf" : [ "afraid", "affair", "afar", "aflame", "afwaid" ]
+}
+
+
+2019-07-28 15:25:43,910 [INFO] [Task.cc:process:45]0 thread search 8 client's word: djafjaj
+
+2019-07-28 15:25:43,910 [INFO] [Task.cc:searchCache:84]0 thread search 8 client's word djafjaj not in cache
+
+2019-07-28 15:25:44,031 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "djafjaj" : [ "jaffa", "defeat", "draft", "japan", "drafted" ]
+}
+
+
+2019-07-28 15:25:52,276 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 欧洲
+
+2019-07-28 15:25:52,276 [INFO] [Task.cc:searchCache:84]4 thread search 8 client's word 欧洲 not in cache
+
+2019-07-28 15:25:52,277 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "欧洲" : [ "欧洲", "欧美", "欧", "亚洲", "欧氏" ]
+}
+
+
+2019-07-28 15:25:55,378 [INFO] [Task.cc:process:45]3 thread search 8 client's word: 非洲
+
+2019-07-28 15:25:55,378 [INFO] [Task.cc:searchCache:84]3 thread search 8 client's word 非洲 not in cache
+
+2019-07-28 15:25:55,379 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "非洲" : [ "欧洲", "非", "非常", "非要", "亚洲" ]
+}
+
+
+2019-07-28 15:25:59,545 [INFO] [Task.cc:process:45]2 thread search 8 client's word: 美国
+
+2019-07-28 15:25:59,545 [INFO] [Task.cc:searchCache:84]2 thread search 8 client's word 美国 not in cache
+
+2019-07-28 15:25:59,545 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "美国" : [ "美国", "中国", "美学", "我国", "法国" ]
+}
+
+
+2019-07-28 15:26:02,106 [INFO] [Task.cc:process:45]1 thread search 8 client's word: 中国
+
+2019-07-28 15:26:02,106 [INFO] [Task.cc:searchCache:84]1 thread search 8 client's word 中国 not in cache
+
+2019-07-28 15:26:02,107 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "中国" : [ "中国", "中", "中心", "我国", "美国" ]
+}
+
+
+2019-07-28 15:26:04,866 [INFO] [Task.cc:process:45]0 thread search 8 client's word: 无敌
+
+2019-07-28 15:26:04,866 [INFO] [Task.cc:searchCache:84]0 thread search 8 client's word 无敌 not in cache
+
+2019-07-28 15:26:04,867 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "无敌" : [ "无疑", "无法", "无以", "无不", "无限" ]
+}
+
+
+2019-07-28 15:26:08,017 [INFO] [Task.cc:process:45]4 thread search 8 client's word: 再见
+
+2019-07-28 15:26:08,017 [INFO] [Task.cc:searchCache:84]4 thread search 8 client's word 再见 not in cache
+
+2019-07-28 15:26:08,017 [INFO] [Connection.cc:sendInLoop:61]return 8 client {
+   "再见" : [ "见", "再现", "参见", "再生", "偏见" ]
+}
+
+

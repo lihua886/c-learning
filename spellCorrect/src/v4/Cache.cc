@@ -14,8 +14,6 @@ using std::ostringstream;
 
 namespace  wd{
 
-
-
 // 构造函数 
 Cache::Cache(const Cache & cache){
     for(auto &it:cache._list){
@@ -116,9 +114,6 @@ void Cache::cacheInsert(const Cache & rhs){
         this->addElement(it._key,it._value);
     }
 }
-
-
-
 
 
 

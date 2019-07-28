@@ -12,8 +12,8 @@ class Cache
     struct CacheNode{
         CacheNode(const string &key,const string &value)
             :_key(key),_value(value){}
-        //CacheNode(const CacheNode& rhs)
-        //    :_key(rhs._key),_value(rhs._value){}
+      //  CacheNode(const CacheNode& rhs)
+      //      :_key(rhs._key),_value(rhs._value){}
         string _key;
         string _value;
     };
@@ -33,8 +33,9 @@ public:
     string  getElement(const string & key);
     void cacheInsert(const Cache & rhs);
     size_t getSize(){ return _list.size(); }
+    void print() const;// 打印信息  调试用
 private:
-    size_t _capacity=10000;
+    size_t _capacity=10;
     std::list<CacheNode> _list;
     // 采用hashTable进行缓存 
     std::unordered_map<string,list<CacheNode>::iterator> _hashMap; 

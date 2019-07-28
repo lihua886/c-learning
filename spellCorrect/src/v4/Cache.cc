@@ -34,15 +34,19 @@ void Cache::addElement(const std::string &key, const std::string & value){
        _list.push_front(CacheNode(key,value));
        _hashMap[key]=_list.begin();
    }else{
-       it->second->_value=value;
-       _list.splice(_list.begin(),_list,it->second);
-       _hashMap[key]=_list.begin();
+     //  it->second->_value=value;
+     //  _list.splice(_list.begin(),_list,it->second);
+     //  _hashMap[key]=_list.begin();
    }
-#if 0
+}
+void Cache::print() const{
    __TRACE("_list.size=%ld,_hashMap.size=%ld\n",_list.size(),_hashMap.size());
    for(auto &it:_list){
-       std::cout<<it._key<<"-->"<<it._value<<std::endl;
+       std::cout<<it._key;
+       //std::cout<<"-->"<<it._value;
+       std::cout<<std::endl;
    }
+#if 0
    for(auto &it:_hashMap){
        std::cout<<it.first<<std::endl;
    }
@@ -86,17 +90,14 @@ void Cache::readFromFile(const std::string & filename){
    for(auto &it:_list){
        std::cout<<it._key<<"-->"<<it._value<<std::endl;
    }
-   for(auto &it:_hashMap){
-       std::cout<<it.first<<std::endl;
-   }
 #endif
 }
 // 将缓存信息写入到文件中  
 void Cache::writeToFile(const std::string & filename){
     ofstream ofs(filename);
     ofs<<"{"<<std::endl;
-    for(auto & it:_list){
-        ofs<<it._value<<","<<std::endl;
+    for(auto it=_list.crbegin();it!=_list.crend();++it){
+        ofs<<it->_value<<","<<std::endl;
     }
     ofs<<"}";
 }
@@ -105,7 +106,10 @@ void Cache::writeToFile(const std::string & filename){
 void Cache::update(const Cache & rhs){
     _list.clear();
     _hashMap.clear();
-    cacheInsert(rhs);
+    for(auto it=rhs._list.crbegin();it!=rhs._list.crend();++it){
+        _list.push_front(CacheNode(*it));
+        _hashMap[it->_key]=_list.begin();
+    }
 }
 void Cache::cacheInsert(const Cache & rhs){
     for(auto &it:rhs._list){

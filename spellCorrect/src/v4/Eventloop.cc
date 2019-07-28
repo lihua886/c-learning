@@ -25,7 +25,7 @@ Eventloop::Eventloop(Acceptor & accept)
 
 void Eventloop::loop(){
     _islooping=true;
-    setTimerfd(0,6);
+    setTimerfd(1,6);
     while(_islooping){
         waitEpollFd();
     }
@@ -197,7 +197,7 @@ void Eventloop::setTimerfd(int initialTime, int intervalTime)
 {
 	struct itimerspec value;
 	value.it_value.tv_sec = initialTime;
-	value.it_value.tv_nsec = 5000;
+	value.it_value.tv_nsec = 0;
 	value.it_interval.tv_sec = intervalTime;
 	value.it_interval.tv_nsec = 0;
 	int ret = ::timerfd_settime(_timerFd, 0, &value, nullptr);

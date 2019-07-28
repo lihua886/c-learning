@@ -57,8 +57,8 @@ void Mytask::process(){
 }
 //转换为json格式
 void Mytask::changeJson(Json::Value &root){
-    Json::FastWriter fast;
-    int cnt=3;
+    //Json::FastWriter fast;
+    int cnt=5;
     while(cnt--){  
         string str=_que.top().candidate_word;
         _que.pop();

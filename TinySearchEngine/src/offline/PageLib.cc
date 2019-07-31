@@ -30,24 +30,22 @@ void PageLib::create(){
         XMLElement* item=channel->FirstChildElement("item");
         while(item){
             RssItem TmpItem;
-            cout<<"title"<<endl;
             XMLElement * title=item->FirstChildElement("title");
-            if(title->GetText()!=NULL){
+            if(title&&title->GetText()!=NULL){
                 TmpItem.title=title->GetText();
             }else{
                 item=item->NextSiblingElement();
                 continue;
             }
-            cout<<TmpItem.title<<endl;
             XMLElement * link=item->FirstChildElement("link");
-            TmpItem.link=link->GetText();
-            cout<<TmpItem.link<<endl;
+            if(link&&link->GetText())
+                TmpItem.link=link->GetText();
             XMLElement * description=item->FirstChildElement("description");
-            if(description!=nullptr){
+            if(description&&description->GetText()){
                 TmpItem.description=description->GetText();
             }
             XMLElement * content=item->FirstChildElement("content:encoded");
-            if(content!=nullptr){
+            if(content&&content->GetText()){
                 TmpItem.content=content->GetText();
             }
             item=item->NextSiblingElement();

@@ -22,26 +22,36 @@ class Configuration;
 class WordSegmentation;
 class WebPage
 {
+
 public:
-    WebPage(const  string & doc,Configuration & config,
-            WordSegmentation & jieba); //  构造函数
+    WebPage(const  string & doc); //  构造函数
+    WebPage(const WebPage &); 
     
-    
-    int getDocId(){ return _docId; } // 获取文档的docid
-    string getDoc(){return _doc;}  // 获取文档
+    int getDocId()const { return _docId; } // 获取文档的docid
+    string getDoc()const {return _doc;}  // 获取文档
     map<string, int> & getWordsMap(){return _wordsMap;}  //  获取文档的词频统计map
-    
-    
+    void print();
     void processDoc();   //  对格式化文档进行处理
+    void processDoc(Configuration & _conf,
+                         WordSegmentation & _jiebe);
     void calcTopK();    // 求文档的TopK单词
-    //友元函数：
+    WebPage& operator=(const WebPage&rhs){
+        _doc=rhs._doc;
+        _docId=rhs._docId;
+        _docTitle=rhs._docTitle;  
+        _docUrl=rhs._docUrl;
+        _docContent=rhs._docContent;    
+        _topWords=rhs._topWords;
+        _wordsMap=rhs._wordsMap;
+        return *this;
+    }
     friend bool operator==(const WebPage & lhs,const WebPage & rhs);    // 判断两篇文档是否相等
     friend bool operator < (const WebPage & lhs,const WebPage & rhs);   // 对文档按Docid进行排序
 private:
     string parse(const string &attr);
 private:
-    Configuration & _conf;
-    WordSegmentation & _jieba;
+ //   Configuration & _conf;
+ //   WordSegmentation & _jieba;
     const static int TOPK_NUMBER = 10;  
     string _doc;   // 整篇文档，包含xml在内
     int _docId;    // 文档id

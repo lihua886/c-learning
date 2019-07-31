@@ -11,6 +11,7 @@ using std::unordered_map;
 
 
 namespace wd{
+
 class Configuration;
 class WordSegmentation;
 class PageLibPreprocessor
@@ -22,6 +23,12 @@ public:
     void cutRedundantPages();  //  对冗余的网页进行去重
     void buildInvertIndexTable(); //   创建倒排索引表
     void storeOnDisk(); // 将经过预处理之后的网页库、位置偏移库和倒排索引表写回到磁盘上
+private:
+    void buildWordsTextTAble();
+    double calculateWeight(int ,std::unordered_map<string,double> &);
+    std::unordered_map<string,vector<int> >  _WordsInTextTable;
+    void storeWebOffset();
+    void storeInvertIndex();
 private:
     Configuration & _conf;//   配置文件对象的引用
     WordSegmentation & _jieba; //    分词对象

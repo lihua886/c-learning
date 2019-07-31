@@ -11,12 +11,12 @@ namespace wd{
 
 
     
-vector<Cache> CacheManger::_cachelist(Myconf::getInstance()->getthreadnum());    
+vector<Cache> CacheManger::_cachelist(Myconf::getInstance()->getthreadnum()+1);    
 
 MutexLock CacheManger::_mutex;
 
 void CacheManger::init(){
-    for(size_t i=0;i<Myconf::getInstance()->getthreadnum();++i){
+    for(size_t i=0;i<=Myconf::getInstance()->getthreadnum();++i){
          _cachelist[i].readFromFile(Myconf::getInstance()->getcachepath());
     }
 #if 0
@@ -31,7 +31,7 @@ void CacheManger::periodUpdate(){
     __TRACE("catch update begin\n");
     _cachelist[0].print();
 #endif
-    for(size_t i=1;i<Myconf::getInstance()->getthreadnum();++i){
+    for(size_t i=1;i<=Myconf::getInstance()->getthreadnum();++i){
         {
             _cachelist[i].update(_cachelist[0]);
         }
@@ -39,21 +39,6 @@ void CacheManger::periodUpdate(){
     _cachelist[0].writeToFile(Myconf::getInstance()->getcachepath());
 }
     
-void CacheManger::periodUpdate1(const string & key){
-    
-    {
-        MutexGuard mutex(_mutex);
-        _cachelist[0].getElement(key);
-    }
-
-}
-void CacheManger::periodUpdate2(const std::string &key, const std::string & value){
-    {
-        MutexGuard mutex(_mutex);
-        _cachelist[0].addElement(key,value);
-    }
-
-}
 
 
 }//end of wd

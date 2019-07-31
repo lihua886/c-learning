@@ -53,9 +53,9 @@ void Mytask::process(){
        changeJson(root);
        mycache.addElement(_query,root.toStyledString());//添加到缓存
        _conn->sendInLoop(root.toStyledString());
-     //  Cache &spcache=CacheManger::getCache(0);
-     //  spcache.addElement(_query,root.toStyledString());//添加到缓存
-       CacheManger::periodUpdate2(_query,root.toStyledString());
+       Cache &spcache=CacheManger::getCache(0);
+       spcache.addElement(_query,root.toStyledString());//添加到缓存
+     //  CacheManger::periodUpdate2(_query,root.toStyledString());
    }
 }
 //转换为json格式
@@ -81,7 +81,9 @@ bool Mytask::searchCache(Cache & mycache){
     if(res.size()!=0){
        LogInfo("%ld thread search %d client's word %s in cache\n",wd::current_thread::threadnum,_conn->getclientfd(),_query.c_str());
         _conn->sendInLoop(res);
-        CacheManger::periodUpdate1(_query);
+       Cache &spcache=CacheManger::getCache(0);
+       spcache.getElement(_query);//添加到缓存
+       // CacheManger::periodUpdate1(_query);
         return true;
     }else{
        LogInfo("%ld thread search %d client's word %s not in cache\n",wd::current_thread::threadnum,_conn->getclientfd(),_query.c_str());

@@ -23,7 +23,6 @@ public:
     vector<string>  cut(const string & );    
 private:
     cppjieba::Jieba jieba;
-  
 };
 
  

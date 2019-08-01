@@ -34,7 +34,7 @@ private:
     WordSegmentation & _jieba; //    分词对象
     vector <WebPage> _pageLib; //  网页库的容器对象
     unordered_map<int, pair<int, int> >  _offsetLib;  //   网页偏移库对象
-    unordered_map<string, vector<pair<int, double> > > _invertIndexTable; // 倒排索引表对象
+    unordered_map<string, set<pair<int, double> > > _invertIndexTable; // 倒排索引表对象
 };
 
 

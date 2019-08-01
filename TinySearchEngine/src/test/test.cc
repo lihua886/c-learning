@@ -17,7 +17,8 @@ void test01(){
     string s="hello他来到了网易wangyi杭研大厦123 \
                     小明xiaoming和小胡一起去apple离家最近的学校； \
                     英雄联盟lol是最好玩的游戏。";
-    vector<string> words=jieba.cut(s);
+    string s1="米米米米米米米米米";
+    vector<string> words=jieba.cut(s1);
     for(auto &it:words){
         std::cout<<it<<" ";
     }

@@ -92,7 +92,7 @@ void WebPage::print(){
     cout<<"docurl= "<<_docUrl<<endl;
     cout<<"doctitle= "<<_docTitle<<endl;
    // cout<<"docContent= "<<_docContent<<endl;
-#if 0
+#if 1
     cout<<"top 10 words= "<<endl;
     for(auto &it:_topWords){
         cout<<it<<" ";
@@ -113,7 +113,7 @@ bool operator==(const WebPage & lhs,const WebPage & rhs){
     size_t lhsSize=lhs._topWords.size();
     size_t rhsSize=rhs._topWords.size();
     size_t commonSize=lhsSize<rhsSize?lhsSize:rhsSize;
-    if(static_cast<double>(cnt/commonSize)>0.6){
+    if(static_cast<double>(cnt)/commonSize>0.6){
         return true;
     }else{
         return false;

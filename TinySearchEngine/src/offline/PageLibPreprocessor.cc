@@ -31,6 +31,10 @@ void PageLibPreprocessor::doProcess(){
 //        it.print();
         it.calcTopK();
     }
+    _pageLib[197].print();
+    _pageLib[203].print();
+
+    
 }   
 //  根据配置信息读取网页库和位置偏移库的内容 
 void PageLibPreprocessor::readInfoFromFile(){
@@ -56,9 +60,9 @@ void PageLibPreprocessor::cutRedundantPages(){
     for(size_t i=0;i!=_pageLib.size();++i){
         for(size_t j=i+1;j!=_pageLib.size();++j){
             if(_pageLib[i]==_pageLib[j]){
-                std::swap(_pageLib[j],_pageLib[_pageLib.size()-1]);
+                _pageLib[j]=_pageLib[_pageLib.size()-1];
                 _pageLib.pop_back();
-                break;
+                --j;
             }
         }
     }
@@ -74,9 +78,11 @@ void PageLibPreprocessor::buildInvertIndexTable(){
         double total=calculateWeight(k,weights);
         for(auto &ans:weights){
             double wReal=ans.second/sqrt(total);
-            _invertIndexTable[ans.first].push_back(std::make_pair(docId,wReal));
+            
+            _invertIndexTable[ans.first].insert(std::make_pair(docId,wReal));
         }
     }
+#if 0
     for(auto &it:_invertIndexTable){
         cout<<it.first<<" ";
         for(auto &i:it.second){
@@ -84,6 +90,7 @@ void PageLibPreprocessor::buildInvertIndexTable(){
         }
         cout<<endl;
     }
+#endif
 } 
 double PageLibPreprocessor::calculateWeight(int k,std::unordered_map<string,double> &weights){
     std::map<string,int> tmpmap=_pageLib[k].getWordsMap();
@@ -92,7 +99,7 @@ double PageLibPreprocessor::calculateWeight(int k,std::unordered_map<string,doub
         int TF=it.second;
         int DF=_WordsInTextTable[it.first].size();
         int N=_pageLib.size();
-        double IDF=log(N/(DF+1))/log(2);
+        double IDF=log(static_cast<double>(N)/(DF+1))/log(2);
         double w=IDF*TF;
         total=total+w*w;
         weights[it.first]=w;
@@ -127,11 +134,11 @@ void PageLibPreprocessor::storeWebOffset(){
     ofstream ofs_offset(_conf.getConfigMap()["offsetlib"]);
     ofstream ofs_text(_conf.getConfigMap()["webpagelib"]);
     for(auto &it:_pageLib){
+        int docid=it.getDocId();
         string doc=it.getDoc();
-        int docId=it.getDocId();
         long beginSit=ofs_text.tellp();
         ofs_text<<doc;
-        ofs_offset<<docId<<" "<<beginSit<<" "<<doc.size()<<endl;
+        ofs_offset<<docid<<" "<<beginSit<<" "<<doc.size()<<endl;
     }
 }
 void PageLibPreprocessor::storeInvertIndex(){
